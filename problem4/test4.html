@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Problem4</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+
+        color: rgba(54, 162, 235, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        /* background: rgba(54, 162, 235, 0.2); */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 700px;
+        padding: 20px;
+        border-radius: 20px;
+        /* border: solid 3px rgba(54, 162, 235, 1); */
+        background: white;
+      }
+      table {
+        border-collapse: separete;
+        border-spacing: 0 10px;
+        /* padding: 5px; */
+      }
+      th {
+        padding-right: 10px;
+        /* border: 1px solid #000; */
+        background-color: #eee;
+        border: 1px solid #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chartCard">
+      <div class="inputBox">
+        <div id="myInput">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>평균기온</th>
+                <th>평균습도</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1월</th>
+                <td>
+                  <input
+                    id="0_0"
+                    onkeyup="updateTempChart(this,id)"
+                    type="number"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="1_0"
+                    onkeyup="updateHumidChart(this,id)"
+                    type="number"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>2월</th>
+                <td>
+                  <input
+                    id="0_1"
+                    onkeyup="updateTempChart(this,id)"
+                    type="number"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="1_1"
+                    onkeyup="updateHumidChart(this,id)"
+                    type="number"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>3월</th>
+                <td>
+                  <input
+                    id="0_2"
+                    onkeyup="updateTempChart(this,id)"
+                    type="number"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="1_2"
+                    onkeyup="updateHumidChart(this,id)"
+                    type="number"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>4월</th>
+                <td>
+                  <input
+                    id="0_3"
+                    onkeyup="updateTempChart(this,id)"
+                    type="number"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="1_3"
+                    onkeyup="updateHumidChart(this,id)"
+                    type="number"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>5월</th>
+                <td>
+                  <input
+                    id="0_4"
+                    onkeyup="updateTempChart(this,id)"
+                    type="number"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="1_4"
+                    onkeyup="updateHumidChart(this,id)"
+                    type="number"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>6월</th>
+                <td>
+                  <input
+                    id="0_5"
+                    onkeyup="updateTempChart(this,id)"
+                    type="number"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="1_5"
+                    onkeyup="updateHumidChart(this,id)"
+                    type="number"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>7월</th>
+                <td>
+                  <input
+                    id="0_6"
+                    onkeyup="updateTempChart(this,id)"
+                    type="number"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="1_6"
+                    onkeyup="updateHumidChart(this,id)"
+                    type="number"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>8월</th>
+                <td>
+                  <input
+                    id="0_7"
+                    onkeyup="updateTempChart(this,id)"
+                    type="number"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="1_7"
+                    onkeyup="updateHumidChart(this,id)"
+                    type="number"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>9월</th>
+                <td>
+                  <input
+                    id="0_8"
+                    onkeyup="updateTempChart(this,id)"
+                    type="number"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="1_8"
+                    onkeyup="updateHumidChart(this,id)"
+                    type="number"
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <th>10월</th>
+                <td>
+                  <input
+                    id="0_9"
+                    onkeyup="updateTempChart(this,id)"
+                    type="number"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="1_9"
+                    onkeyup="updateHumidChart(this,id)"
+                    type="number"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>11월</th>
+                <td>
+                  <input
+                    id="0_10"
+                    onkeyup="updateTempChart(this,id)"
+                    type="number"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="1_10"
+                    onkeyup="updateHumidChart(this,id)"
+                    type="number"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>12월</th>
+                <td>
+                  <input
+                    id="0_11"
+                    onkeyup="updateTempChart(this,id)"
+                    type="number"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="1_11"
+                    onkeyup="updateHumidChart(this,id)"
+                    type="number"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button onclick="random_data()">random</button>
+        </div>
+      </div>
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+    <script>
+      // setup
+      const data = {
+        labels: [
+          "1월",
+          "2월",
+          "3월",
+          "4월",
+          "5월",
+          "6월",
+          "7월",
+          "8월",
+          "9월",
+          "10월",
+          "11월",
+          "12월",
+        ],
+        datasets: [
+          {
+            label: "평균기온",
+            // 평균기온 setting 0으로 1~12월
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            backgroundColor: ["rgba(255, 26, 104, 0.2)"],
+            borderColor: ["rgba(255, 26, 104, 1)"],
+            borderWidth: 1,
+            lineTenstion: 0,
+            // 꼭지점 지우기
+            pointStyle: false,
+            yAxisID: "Temperatures",
+          },
+          {
+            label: "평균습도",
+            // 평균습도 setting 0으로 1~12월
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            backgroundColor: ["rgba(54, 162, 235, 1)"],
+            borderColor: ["rgba(54, 162, 235, 1)"],
+            borderWidth: 1,
+            lineTenstion: 0,
+            // 꼭지점 지우기
+            pointStyle: false,
+            yAxisID: "Humid",
+          },
+        ],
+      };
+
+      // config
+      const config = {
+        type: "line",
+        data,
+        options: {
+          scales: {
+            Temperatures: {
+              beginAtZero: true,
+              type: "linear",
+              position: "left",
+              grid: {
+                drawOnChartArea: false,
+              },
+              ticks: {
+                callback: function (value, index, values) {
+                  return `${value} °C`;
+                },
+              },
+            },
+            Humid: {
+              beginAtZero: true,
+              type: "linear",
+              position: "right",
+              grid: {
+                drawOnChartArea: false,
+              },
+              // 오른쪽 y축 % 붙이기
+              ticks: {
+                callback: function (value, index, values) {
+                  return `${value} %`;
+                },
+              },
+            },
+          },
+        },
+      };
+
+      // render init block
+      const myChart = new Chart(document.getElementById("myChart"), config);
+
+      // 기온 업데이트 함수
+      function updateTempChart(barvalues, id) {
+        // console.log(barvalues.value);
+        // console.log(id);
+        // console.log(typeof id);
+        // id 값 중에 _ 를 기준으로 index 정리
+        let kind_month = id.split("_");
+        // console.log(kind_month);
+
+        // kind_month[0]이 0이면 기온 1이면 습도
+        // kind_month[1]는 1월이면 0 2월이면 1 .... 12월 까지
+        myChart.config.data.datasets[kind_month[0]].data[kind_month[1]] =
+          barvalues.value;
+
+        myChart.update();
+      }
+      // 습도 업데이트 함수
+      function updateHumidChart(barvalues, id) {
+        let kind_month = id.split("_");
+
+        myChart.config.data.datasets[kind_month[0]].data[kind_month[1]] =
+          barvalues.value;
+        myChart.update();
+      }
+
+      // random data
+      function random_data() {
+        console.log("랜덤 버튼을 눌렀습니다");
+
+        for (i = 0; i < myChart.config.data.datasets[0].data.length; i++) {
+          let random_num1 = Math.floor(Math.random() * 100);
+          let random_num2 = Math.floor(Math.random() * 100);
+          // console.log(random_num1);
+          myChart.config.data.datasets[0].data[i] = random_num1;
+          myChart.config.data.datasets[1].data[i] = random_num2;
+          let temp_1 = document.getElementsByClassName("temp_1");
+          temp_1.value = random_num1;
+          console.log(temp_1.value);
+
+          myChart.update();
+        }
+        // console.log(myChart.config.data.datasets[0].data);
+      }
+
+      // function change_val(obj) {
+      //   obj.value = random_num1;
+      //   console.log("여기");
+      //   console.log(obj.value);
+      // }
+    </script>
+  </body>
+</html>
